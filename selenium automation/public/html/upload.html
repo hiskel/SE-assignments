@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Bogus News Factory</title>
+    </head>
+    <style></style>
+    <body>
+        <header>
+            <h2>BogusNews.com</h2>
+        </header>
+        <section>
+            <form>
+                <textarea type="text" name="upload-content" id="upload-content" cols="30" rows="10"></textarea>
+                <input id="upload" type="button" value="Upload">
+            </form>
+        </section>
+    </body>
+    <script src="./javascripts/jquery.js"></script>
+    <script>
+        $(document).ready(function () { 
+            const content = $("#upload-content");
+            $("#upload").click(function () { 
+                if (content.val().trim()) {
+                    $.post(
+                        '/upload_news',
+                        {
+                            news: content.val()
+                        });
+                }
+            })
+        })
+    </script>
+</html>

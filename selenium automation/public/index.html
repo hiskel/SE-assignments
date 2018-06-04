@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Bogus News Factory</title>
+    </head>
+    <style></style>
+    <body>
+        <header>
+            <h2>BogusNews.com</h2>
+        </header>
+        <section id="news-wrapper">
+            
+        </section>
+    </body>
+    <script src="./javascripts/jquery.js"></script>
+    <script>
+        $(document).ready(function () { 
+            const news = $("#news-wrapper"); 
+            setInterval(getNews, 3000);
+            function getNews() {  
+                news.html("");
+                $.get('/news').done(function (data, status) {  
+                data.forEach(element => {
+                    const new_ = $("<h2></h2>");
+                    new_.text(element);
+                    news.append(new_);
+                    });
+                })
+            }
+        })
+    </script>
+</html>
