@@ -6,4 +6,3 @@ the application can send and receive messages in realtime
 
 author: Hiskel Kelemework
 email: dawitgizaw51@gmail.com
-id: atr/0872/08
